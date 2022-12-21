@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         if (scores.Count > 10) { scores = scores.GetRange(0, 10); }
     }
 
+    [System.Serializable]
     public struct ScoreRecord
     {
         public string name;
