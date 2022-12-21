@@ -24,6 +24,7 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         UpdateBestScore();
+        UpdateScoreText();
 
         // Game Setup
         const float step = 0.6f;
@@ -71,7 +72,11 @@ public class MainManager : MonoBehaviour
     void AddPoint(int point)
     {
         m_Points += point;
-        ScoreText.text = $"Score : {m_Points}";
+        UpdateScoreText();
+    }
+
+    void UpdateScoreText() {
+        ScoreText.text = $"{GameManager.Instance.playerName} Score : {m_Points}";
     }
 
     void UpdateBestScore()
