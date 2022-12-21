@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
         if (record.name == "")
         {
-            record.name = "Unknown"
+            record.name = "Unknown";
         }
 
         scores.Add(record);
