@@ -12,7 +12,7 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreText;
     public Text BestScoreText;
-    public GameObject GameOverText;
+    public GameObject GameOverMenu;
     
     private bool m_Started = false;
     private int m_Points;
@@ -76,6 +76,7 @@ public class MainManager : MonoBehaviour
 
     void UpdateBestScore()
     {
+        if (GameManager.Instance == null) { return; }
         GameManager.ScoreRecord bestRecord = GameManager.Instance.BestRecord;
 
         if (bestRecord.score == 0)
@@ -96,8 +97,14 @@ public class MainManager : MonoBehaviour
     public void GameOver()
     {
         m_GameOver = true;
-        GameOverText.SetActive(true);
+        GameOverMenu.SetActive(true);
 
         GameManager.Instance.newScore(m_Points);
+        GameManager.Instance.SaveScores();
+    }
+
+    public void ToMenu()
+    {
+        SceneManager.LoadScene("startmenu");
     }
 }
