@@ -78,6 +78,12 @@ public class MainManager : MonoBehaviour
     {
         GameManager.ScoreRecord bestRecord = GameManager.Instance.BestRecord;
 
+        if (bestRecord.score == 0)
+        {
+            BestScoreText.text = "Best Score: None";
+            return;
+        }
+
         if (m_Points > bestRecord.score)
         {
             BestScoreText.text = $"Best Score: {m_Points} by {GameManager.Instance.playerName}!";

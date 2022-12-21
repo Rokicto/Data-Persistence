@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
         record.name = playerName;
         record.score = score;
 
+        if (record.name == "")
+        {
+            record.name = "Unknown"
+        }
+
         scores.Add(record);
         scores.Sort((r1, r2) => r2.score - r1.score);
 
